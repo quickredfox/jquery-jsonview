@@ -1,0 +1,36 @@
+/* $.jsonView() 0.1 - jQuery-based Json to html pretty printer
+ *
+ * Copyright (c) 2010 Francois Lafortune  (quickredfox.at)
+ * Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php 
+*/
+.jquery-jsonview{display:block;float:left;line-height:15px;font-size:11px;}
+.jquery-jsonview *{margin:0;padding:0;font-family:helvetica,sans-serif;}
+/* tree node resets */
+.jquery-jsonview .array-wrapper,.jquery-jsonview .array-item-list,.jquery-jsonview .array-item,.jquery-jsonview .object-wrapper,.jquery-jsonview .object-property-list,.jquery-jsonview .property-name,.jquery-jsonview .property-value,.jquery-jsonview .string-value,.jquery-jsonview .null-value{margin:0;padding:0;display:block;float:left;width:100%;color:#333;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;}
+/* wrappers*/
+.jquery-jsonview .array-wrapper,.jquery-jsonview .object-wrapper{display:block;float:left;width:100%;list-style-type:none;}
+/* lists */
+.jquery-jsonview .array-item-list,.jquery-jsonview .object-property-list{margin-left:3em;}
+/* array display */
+.jquery-jsonview div.array-wrapper{border-left:1px dotted #ccc;}
+.jquery-jsonview ol.array-item-list:before{content:'[';display:block;float:left;color:#069;font-weight:bold;}
+.jquery-jsonview ol.array-item-list:after{content:']';display:block;float:left;color:#069;font-weight:bold;}
+/*.jquery-jsonview li.array-item:after{content:' ,';display:block;float:left;color:#069;font-weight:bold;}*/
+.jquery-jsonview li.array-item:last-child:after{content:''}
+/* object display */
+.jquery-jsonview div.object-wrapper{border-left:1px dotted #ccc;}
+.jquery-jsonview dl.object-property-list{font-weight:bold;display:block;float:left;width:100%;}
+.jquery-jsonview dl.object-property-list:before{content:'{';display:block;float:left;color:#069;font-weight:bold;}
+.jquery-jsonview dl.object-property-list:after{content:'}';display:block;float:left;color:#069;font-weight:bold;}
+.jquery-jsonview dt.property-name{color:#000;margin-left:1em;position:relative;}
+.jquery-jsonview dd.property-value{margin-left:2em;color:#666;font-weight:normal;}
+/* closed states */
+.jquery-jsonview dt.property-name.closed-object:after{content:'{ … }';color:#069;margin-left:5px;}
+.jquery-jsonview dt.property-name.closed-array:after{ content:'[ … ]';color:#069;margin-left:5px;}
+.jquery-jsonview dt.property-name.closed-string:after{content:'" … "';color:#069;margin-left:5px;}
+/* misc */
+.jquery-jsonview p.null-value,.jquery-jsonview p.string-value{padding:2px;border:1px solid #eee;width:100%;margin:2px;}
+.jquery-jsonview p.null-value{color:#ccc;}
+.jquery-jsonview p.string-value input{border:0;font-family:monospace;color:#333;font-size:13px;width:100%;}
+.jquery-jsonview a.property-toggle-button{font-size:11px;text-decoration:none;font-weight:bold;position:absolute;left:-17px;width:15px;height:15px;color:#c99;}
+.jquery-jsonview a.property-toggle-button:hover{#c03;}

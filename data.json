@@ -1,0 +1,14 @@
+{
+	"tree": {
+		"propKey": "prop string value",
+		"objectpropKey": {
+			"name": "example object",
+			"items" : [["one","two","three"],{"foo":"bar"},"camp"]
+		},
+		"arrayobjectpropKey": [
+			"one",
+			{"two":"three","four":"five"},
+			["six",7,null]
+		]
+	}
+}
