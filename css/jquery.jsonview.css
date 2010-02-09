@@ -13,15 +13,15 @@
 .jquery-jsonview .array-item-list,.jquery-jsonview .object-property-list{margin-left:3em;}
 /* array display */
 .jquery-jsonview div.array-wrapper{border-left:1px dotted #ccc;}
-.jquery-jsonview ol.array-item-list:before{content:'[';display:block;float:left;color:#069;font-weight:bold;}
-.jquery-jsonview ol.array-item-list:after{content:']';display:block;float:left;color:#069;font-weight:bold;}
+.jquery-jsonview div.array-wrapper:before{content:'[';display:block;float:left;color:#069;font-weight:bold;margin-left:-1em;}
+.jquery-jsonview div.array-wrapper:after{content:']';display:block;float:left;color:#069;font-weight:bold;margin-left:-0.5em;}
 /*.jquery-jsonview li.array-item:after{content:' ,';display:block;float:left;color:#069;font-weight:bold;}*/
 .jquery-jsonview li.array-item:last-child:after{content:''}
 /* object display */
 .jquery-jsonview div.object-wrapper{border-left:1px dotted #ccc;}
 .jquery-jsonview dl.object-property-list{font-weight:bold;display:block;float:left;width:100%;}
-.jquery-jsonview dl.object-property-list:before{content:'{';display:block;float:left;color:#069;font-weight:bold;}
-.jquery-jsonview dl.object-property-list:after{content:'}';display:block;float:left;color:#069;font-weight:bold;}
+.jquery-jsonview div.object-wrapper:before{content:'{';display:block;float:left;color:#069;font-weight:bold;margin-left:-1em;}
+.jquery-jsonview div.object-wrapper:after{content:'}';display:block;float:left;color:#069;font-weight:bold;margin-left:-0.5em;}
 .jquery-jsonview dt.property-name{color:#000;margin-left:1em;position:relative;}
 .jquery-jsonview dd.property-value{margin-left:2em;color:#666;font-weight:normal;}
 /* closed states */
@@ -29,8 +29,7 @@
 .jquery-jsonview dt.property-name.closed-array:after{ content:'[ … ]';color:#069;margin-left:5px;}
 .jquery-jsonview dt.property-name.closed-string:after{content:'" … "';color:#069;margin-left:5px;}
 /* misc */
-.jquery-jsonview p.null-value,.jquery-jsonview p.string-value{padding:2px;border:1px solid #eee;width:100%;margin:2px;}
+.jquery-jsonview p.null-value,.jquery-jsonview p.string-value{padding:2px;border:1px solid #eee;width:auto;margin:2px;font-family:monospace;color:#333;font-size:13px;}
 .jquery-jsonview p.null-value{color:#ccc;}
-.jquery-jsonview p.string-value input{border:0;font-family:monospace;color:#333;font-size:13px;width:100%;}
 .jquery-jsonview a.property-toggle-button{font-size:11px;text-decoration:none;font-weight:bold;position:absolute;left:-17px;width:15px;height:15px;color:#c99;}
 .jquery-jsonview a.property-toggle-button:hover{#c03;}

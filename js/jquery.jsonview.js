@@ -29,7 +29,7 @@
 	}		
 	// the ACTUAL plugin
 	var json2markup = function(json,lvl){
-		var markup = [],lvl = (lvl ? lvl+1 : 0);
+		var markup = [],lvl = (lvl+1)||0;
 		if(typeof json == 'object' && json instanceof Array){
 			// handle array
 			markup.push('<div class="array-wrapper lvl-'+lvl+'"><ol title="Array with '+json.length+' items" class="array-item-list">');
@@ -42,7 +42,7 @@
 			markup.push('</ul></div>');			
 		}else if(json){
 			// handle string
-			markup.push('<p class="string-value"><input type="text" readonly="readonly" value="'+json+'" /></p>');
+			markup.push('<p class="string-value">'+json+'</p>');
 		}else{
 			// handle null
 			markup.push('<p class="null-value">null</p>');
@@ -62,16 +62,15 @@
 		}
 		// toggle
 		if($this.data('dd').is(':visible')){
-			$this.data('dd').slideUp(function(){
+			$this.data('dd').hide(0,function(){
 				$this.data('dt').addClass('closed-'+$this.data('type'))					
 				$this.text('[+]');					
 			});	
 		}else{
-			$this.data('dd').slideDown(function(){
+			$this.data('dd').show(0,function(){
 				$this.data('dt').removeClass('closed-'+$this.data('type'))										
 				$this.text('[-]');
 			});
 		} 
 	});
-	$('.string-value input').live('click',function(){ $(this).focus().select();})
-})()
+})();
