@@ -32,14 +32,26 @@
 		var markup = [],lvl = (lvl+1)||0;
 		if(typeof json == 'object' && json instanceof Array){
 			// handle array
-			markup.push('<div class="array-wrapper lvl-'+lvl+'"><ol title="Array with '+json.length+' items" class="array-item-list">');
-			for(var i=0,item;item = json[i++];) markup.push('<li class="array-item">'+(typeof item == 'string' || typeof item == 'number' ? '<p class="string-value">'+item+'</p>' : json2markup(item,lvl))+'</li>');
-			markup.push('</ol></div>');
+			if(json.length == 0) markup.push('<div class="empty-array-wrapper lvl-"'+lvl+'">[ ]</div>');
+			else{
+				markup.push('<div class="array-wrapper lvl-'+lvl+'"><ol title="Array with '+json.length+' items" class="array-item-list">');
+				// if empty
+				for(var i=0,item;item = json[i++];) markup.push('<li class="array-item">'+(typeof item == 'string' || typeof item == 'number' ? '<p class="string-value">'+item+'</p>' : json2markup(item,lvl))+'</li>');
+				markup.push('</ol></div>');
+			}
 		}else if(typeof json == 'object'){
 			// handle real object			
-			markup.push('<div class="object-wrapper lvl-'+lvl+'"><dl class="object-property-list">');
-			for(var k in json) markup.push('<li class="object-property"><dl class="property-definition"><dt class="property-name">'+k+':<a href="#" class="property-toggle-button">[-]</a></dt><dd class="property-value">'+json2markup(json[k],lvl)+'</dd></dl></li>');
-			markup.push('</ul></div>');			
+			markup.push('<div class="object-wrapper lvl-'+lvl+'"><ul class="object-property-list">');
+			var ml = markup.length
+			for(var k in json){
+				markup.push('<li class="object-property"><dl class="property-definition"><dt class="property-name">'+k+':<a href="#" class="property-toggle-button">[-]</a></dt><dd class="property-value">'+json2markup(json[k],lvl)+'</dd></dl></li>')
+			};
+			if(markup.length == ml){
+			  // rewind
+			  markup.shift();
+			  markup.push('<div class="empty-object-wrapper lvl-'+lvl+'">');
+			}else markup.push('</ul>');
+			markup.push('</div>');			
 		}else if(json){
 			// handle string
 			markup.push('<p class="string-value">'+json+'</p>');
@@ -62,14 +74,14 @@
 		}
 		// toggle
 		if($this.data('dd').is(':visible')){
+			$this.text('[+]');	
 			$this.data('dd').hide(0,function(){
-				$this.data('dt').addClass('closed-'+$this.data('type'))					
-				$this.text('[+]');					
+				$this.data('dt').addClass('closed-'+$this.data('type'))									
 			});	
 		}else{
+			$this.text('[-]');
 			$this.data('dd').show(0,function(){
 				$this.data('dt').removeClass('closed-'+$this.data('type'))										
-				$this.text('[-]');
 			});
 		} 
 	});
