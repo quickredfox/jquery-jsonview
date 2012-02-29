@@ -55,7 +55,11 @@
 		}else if(json){
 			// handle string
 			markup.push('<p class="string-value">'+json+'</p>');
-		}else{
+		}else if(typeof json === 'number'){
+			// handle numbers
+			markup.push('<p class="string-value">'+json.toString()+'</p>');
+		}else{ 
+		
 			// handle null
 			markup.push('<p class="null-value">null</p>');
 		}
