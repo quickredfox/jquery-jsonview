@@ -54,6 +54,7 @@
 			markup.push('</div>');			
 		}else if(json){
 			// handle string
+			json = $('<div/>').text(json).html();
 			markup.push('<p class="string-value">'+json+'</p>');
 		}else if(typeof json === 'number'){
 			// handle numbers
