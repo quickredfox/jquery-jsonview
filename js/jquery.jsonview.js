@@ -36,7 +36,7 @@
 			else{
 				markup.push('<div class="array-wrapper lvl-'+lvl+'"><ol title="Array with '+json.length+' items" class="array-item-list">');
 				// if empty
-				for(var i=0,item;item = json[i++];) markup.push('<li class="array-item">'+(typeof item == 'string' || typeof item == 'number' ? '<p class="string-value">'+item+'</p>' : json2markup(item,lvl))+'</li>');
+				for(var i=0,item;item = json[i++];) markup.push('<li class="array-item"><a href="#" class="list-toggle-button">[-]</a>'+(typeof item == 'string' || typeof item == 'number' ? '<p class="string-value">'+item+'</p>' : json2markup(item,lvl))+'</li>');
 				markup.push('</ol></div>');
 			}
 		}else if(typeof json == 'object'){
@@ -66,6 +66,33 @@
 		}
 		return markup.join('');
 	}
+	
+	/** folder, un-folder array */
+	$('.list-toggle-button').live('click', function(e){
+		e.preventDefault();e.stopPropagation();
+		var $this = $(this);
+		if(!$this.data('li')){
+			$this.data('li', $this.parents('li').first());
+			$this.data('div', $this.data('li').children('div'));
+			var type = 	($this.data('li').find('> .array-wrapper').length > 0 ? 'array' : $this.data('li').find('> .object-wrapper').length > 0 ? 'object' : 'string');				
+			$this.data('type', type);
+		}
+		
+		if(!$this.data('div').length){$this.text(''); return;} /** array of number, string does not need folder or unfolder */
+		//toggle
+		if($this.data('div').is(':visible')){
+			$this.text('[+]');	
+			$this.data('div').hide(0,function(){
+				$this.data('li').addClass('closed-'+$this.data('type'));
+			});	
+		}else{
+			$this.text('[-]');
+			$this.data('div').show(0,function(){
+				$this.data('li').removeClass('closed-'+$this.data('type'));
+			});
+		} 
+	});
+	
 	// only register this once... will work everywhere
 	$('.property-toggle-button').live('click',function(e){
 		e.preventDefault();e.stopPropagation();

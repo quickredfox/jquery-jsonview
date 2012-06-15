@@ -20,11 +20,9 @@
 	<script type="text/javascript" charset="utf-8">
 		// wait for document ready
 		$(function(){
-			// load some json data
-			$.getJSON('data.json',function(json){
-				// inject contents in document body
-				$('#jsonview').jsonView(json);
-			})
+			//var json = [['ab cd','ef ','gn 13'],[4,5,6,8], [{'abc':123}, {'dd':'ffff'}]];
+			var json = {"CmsControlContxt": [], "CssFile": null, "Title": null, "MetaDesc": null, "MasterPageFile": null, "JsFile": null, "PageProperties": [{"Value": "<?xml version=\"1.0\" encoding=\"utf-8\"?><ShopLocal><BannerZoneTop Src=\"/Images/Banners/images/green_minishops_banner1.jpg\" Link=\"/\" AltText=\"Banner\" /><BannerZoneLeft Src=\"/Images/Banners/images/minishops_PromoZone.jpg\" Link=\"/\" AltText=\"Banner\" /><BannerZoneMiddle Src=\"/Images/Banners/images/minishops_PromoZone.jpg\" Link=\"/\" AltText=\"Banner\" /><BannerZoneRight Src=\"/Images/Banners/images/minishops_PromoZone.jpg\" Link=\"/\" AltText=\"Banner\" /></ShopLocal>", "Key": "shop local"}], "PageId": {"Url": "/shoplocal", "UrlKey": "shop local", "CatalogId": 8}, "IsRobotAllowed": false};
+			$('#jsonview').jsonView(json);
 		});
 	</script>	
 </head>

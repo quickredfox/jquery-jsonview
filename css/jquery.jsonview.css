@@ -16,9 +16,9 @@
 /* array display */
 .jquery-jsonview .array-wrapper{border-left:1px dotted #ccc;}
 .jquery-jsonview .array-wrapper:before{content:'[';display:block;float:left;color:#069;font-weight:bold;margin-left:-1em;}
-.jquery-jsonview .array-wrapper:after{content:']';display:block;float:left;color:#069;font-weight:bold;margin-left:-0.5em;}
-/*.jquery-jsonview li.array-item:after{content:' ,';display:block;float:left;color:#069;font-weight:bold;}*/
-.jquery-jsonview .array-item:last-child:after{content:''}
+.jquery-jsonview .array-wrapper:after{content:']';display:block;color:#069;font-weight:bold;margin-left:-0.5em;}
+/*.jquery-jsonview li.array-item:after{content:' ,';display:block;float:left;color:#069;font-weight:bold;}
+.jquery-jsonview .array-item:last-child:after{content:''}*/
 /* object display */
 .jquery-jsonview .object-wrapper{border-left:1px dotted #ccc;}
 .jquery-jsonview .object-property-list{font-weight:bold;display:block;float:left;width:100%;}
@@ -27,11 +27,12 @@
 .jquery-jsonview .property-name{color:#000;margin-left:1em;position:relative;}
 .jquery-jsonview .property-value{margin-left:2em;color:#666;font-weight:normal;}
 /* closed states */
-.jquery-jsonview .property-name.closed-object:after{content:'{ … }';color:#069;margin-left:5px;}
-.jquery-jsonview .property-name.closed-array:after{ content:'[ … ]';color:#069;margin-left:5px;}
+.jquery-jsonview .property-name.closed-object:after,.array-item.closed-object:after{content:'{ … }';color:#069;margin-left:5px;}
+.jquery-jsonview .property-name.closed-array:after,.array-item.closed-array:after{ content:'[ … ]';color:#069;margin-left:5px;}
 .jquery-jsonview .property-name.closed-string:after{content:'" … "';color:#069;margin-left:5px;}
 /* misc */
 .jquery-jsonview .null-value,.jquery-jsonview .string-value{padding:2px;border:1px solid #eee;width:auto;margin:2px;font-family:monospace;color:#333;font-size:13px;}
 .jquery-jsonview .null-value{color:#ccc;}
 .jquery-jsonview .property-toggle-button{font-size:11px;text-decoration:none;font-weight:bold;position:absolute;left:-17px;width:15px;height:15px;color:#c99;}
+.jquery-jsonview .list-toggle-button{font-size:11px;text-decoration:none;font-weight:bold;position:absolute;left:-25px;top:15px;display:block;position:relative;width:15px;height:15px;color:#c99;}
 .jquery-jsonview .property-toggle-button:hover{#c03;}
